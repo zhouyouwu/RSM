@@ -1,0 +1,55 @@
+body {
+    background-image: url("../resource/background.jpg");
+}
+
+.div-main {
+    text-align: center;
+    color: #FFFFFF;
+    min-width: 960px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 150px;
+}
+
+.log-box {
+    width: 100px;
+    height: 300px;
+    display: block;
+    cursor: pointer;
+    margin: 0 2em;
+    overflow: hidden;/*超出容器以后隐藏*/
+    transition: width 500ms ease-in-out 0s;/*过渡动画，让鼠标放上去就渐变为500px，配合下面的hover使用*/
+    border-radius: 10px;
+}
+
+.log-form {
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    align-content: center;
+    align-items: center;
+    padding: 65px 20px 50px 20px;
+    background: #FFB800;
+}
+
+.log-span {
+    display: flex;
+    width: 100px;
+    height: 300px;
+    align-items: center;
+    font-size: 22px;
+    padding: 0 1em 0 1.5em;
+    letter-spacing: 0.5em;
+    background: #FFB800;
+}
+
+.log-span, .log-form {
+     box-sizing: border-box;
+ }
+
+.log-box:hover
+{
+    width:500px;
+}

@@ -4,9 +4,47 @@
     <meta charset="UTF-8">
     <title>登录</title>
 
-    <link rel="..\plugins\layui-v2.5.6\layui\css\layui.css"/>
+    <link rel="stylesheet" href="../plugins/layui-v2.5.6/layui/css/layui.css"/>
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-    <
+<div class="div-main">
+    <div class="log-box">
+        <div class="log-span" style="float: left">
+            <span>管理员登录</span>
+        </div>
+        <div class="log-form">
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <input type="text" class="layui-input" placeholder="请输入用户名"><br/>
+                </div>
+                <div class="layui-form-item">
+                    <input type="password" class="layui-input" placeholder="请输入密码"><br/>
+                </div>
+
+                <button type="submit" class="layui-btn layui-btn-normal layui-btn-fluid">登录</button>
+            </form>
+        </div>
+    </div>
+    <div class="log-box">
+        <div class="log-span" style="float: right">
+            <span>员工登录</span>
+        </div>
+        <div class="log-form">
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <input type="text" class="layui-input" placeholder="请输入用户名"><br/>
+                </div>
+                <div class="layui-form-item">
+                    <input type="password" class="layui-input" placeholder="请输入密码"><br/>
+                </div>
+
+                <button type="submit" class="layui-btn layui-btn-normal layui-btn-fluid">登录</button>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
+
+<script src="../plugins/layui-v2.5.6/layui/layui.js"></script>
 </html>

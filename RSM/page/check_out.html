@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>统计报表</title>
+    <link rel="stylesheet" href="../plugins/layui-v2.5.6/layui/css/layui.css"/>
+</head>
+<body style="background: #F2F2F2">
+<div class="layui-row">
+    <div class="layui-col-md9 layui-col-md-offset3">
+        <form class="layui-form layui-form-pane">
+            <div class="layui-form-item" style="float: right">
+                <label class="layui-form-label">数据账期：</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="op-time" readonly autocomplete="off" placeholder="选择账期"
+                           class="layui-input">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="layui-tab layui-tab-brief" lay-filter="tabCheck">
+    <ul class="layui-tab-title">
+        <li class="layui-this" id="custom">顾客消费</li>
+        <li id="dish">菜品销量</li>
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    数据概览
+                </div>
+                <div class="layui-card-body">
+                    <div id="custom-chart" style="height: 400px;width: 710px"></div>
+                    <table class="layui-table" id="custom-table">
+                        <colgroup>
+                            <col width="100">
+                            <col width="100">
+                            <col width="100">
+                            <col width="100">
+                            <col width="100">
+                            <col width="100">
+                            <col width="100">
+                            <col width="100">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>订单编号</th>
+                            <th>订单折扣</th>
+                            <th>订单总计</th>
+                            <th>订单实收</th>
+                            <th>餐厅编号</th>
+                            <th>购物车号</th>
+                            <th>订单日期</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="layui-tab-item">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    数据概览
+                </div>
+                <div class="layui-card-body">
+                    <div id="dishes-chart" style="width: 710px;height: 400px"></div>
+                    <table class="layui-table" id="dishes-table">
+                        <colgroup>
+                            <col width="100">
+                            <col width="100">
+                            <col width="100">
+                            <col width="100">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>菜品编号</th>
+                            <th>菜品名字</th>
+                            <th>菜品价格</th>
+                            <th>菜品营业额</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../plugins/layui-v2.5.6/layui/layui.js" type="text/javascript"></script>
+<script src="../plugins/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
+<script src="../plugins/echart/echarts.min.js" type="text/javascript"></script>
+<script src="../js/utils.js" type="text/javascript"></script>
+<script src="../js/check_out.js" type="text/javascript"></script>
+</html>

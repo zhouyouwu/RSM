@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../plugins/layui-v2.5.6/layui/css/layui.css"/>
+</head>
+<body>
+<form class="layui-form" style="margin: 20px">
+    <div class="layui-form-item">
+        <span class="layui-form-label">用户id</span>
+        <div class="layui-input-inline">
+            <input class="layui-input" type="text" name="userId">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <span class="layui-form-label">密码</span>
+        <div class="layui-input-inline">
+            <input class="layui-input" type="text" name="password">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <span class="layui-form-label">权限</span>
+        <div class="layui-input-block">
+            <input type="radio" value="0" title="员工" name="authority">
+            <input type="radio" value="1" title="管理员" name="authority" id="bossRadio">
+        </div>
+
+    </div>
+    <div class="layui-form-item">
+        <span class="layui-form-label">入职时间</span>
+        <div class="layui-input-inline">
+            <input class="layui-input" type="text" name="entryDate">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <span class="layui-form-label">工作天数</span>
+        <div class="layui-input-inline">
+            <input class="layui-input" type="text" name="workDate">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <span class="layui-form-label">薪水</span>
+        <div class="layui-input-inline">
+            <input class="layui-input" type="text" name="salary">
+        </div>
+    </div>
+    <div class="layui-form-item" id="div-btn">
+    </div>
+</form>
+</body>
+<script src="../../plugins/layui-v2.5.6/layui/layui.js" type="text/javascript"></script>
+<script src="../../plugins/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
+<script src="../../plugins/art-template/art-template.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    layui.use(['jquery','form'], function () {
+        var $ = layui.$,
+            form = layui.form;
+
+        form.on('submit(modify)', function (data) {
+            var value = data.field;
+            // $.ajax({
+            //     type: 'get',
+            //     url: '',
+            //     async: true,
+            //     cache: false,
+            //     data: {'userId': value.userId},
+            //     dataType: "json",
+            //     contentType: "application/x-www-form-urlencoded; charset=utf-8",
+            //     success: function (v) {
+            //         alert("修改成功");
+            //         layer.close(index);
+            //     },
+            //     error: function (v) {
+            //         console.error('接口异常', v);
+            //     }
+            // });ToDo:删除下面的语句
+            alert("修改成功");
+            window.parent.document.getElementById('initTable').click();
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(index);
+        });
+
+        form.on('submit(add)', function (data) {
+            var value = data.field;
+            // $.ajax({
+            //     type: 'get',
+            //     url: '',
+            //     async: true,
+            //     cache: false,
+            //     data: {'userId': value.userId},
+            //     dataType: "json",
+            //     contentType: "application/x-www-form-urlencoded; charset=utf-8",
+            //     success: function (v) {
+            //         alert("修改成功");
+            //         layer.close(index);
+            //     },
+            //     error: function (v) {
+            //         console.error('接口异常', v);
+            //     }
+            // });ToDo:删除下面的语句
+            alert("新增成功");
+            window.parent.document.getElementById('initTable').click();
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(index);
+        });
+    });
+</script>
+
+</html>

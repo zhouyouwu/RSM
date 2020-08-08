@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>餐厅管理</title>
+    <link rel="stylesheet" href="../plugins/layui-v2.5.6/layui/css/layui.css"/>
+</head>
+<body>
+<form class="layui-form" style="margin: 20px">
+    <div class="layui-form-item">
+    <span class="layui-form-label">
+        餐厅编号
+    </span>
+        <div class="layui-input-inline">
+            <input type="text" disabled class="layui-input" id="restNo">
+        </div>
+        <span class="layui-form-label">
+        餐厅名
+        </span>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" id="restName">
+        </div>
+    </div>
+    <div class="layui-form-item">
+    <span class="layui-form-label">
+        餐厅地址
+    </span>
+        <div class="layui-input-block">
+            <input type="text" class="layui-input" id="restAddr">
+        </div>
+    </div>
+    <div class="layui-form-item">
+    <span class="layui-form-label">
+        餐厅电话
+    </span>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" id="restPhone">
+        </div>
+    </div>
+    <div class="layui-form-item">
+    <span class="layui-form-label">
+        今日折扣
+    </span>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" id="restDiscount">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="submit" class="layui-btn layui-btn-warm" id="mdf">修改</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+</body>
+<script src="../plugins/layui-v2.5.6/layui/layui.js" type="application/javascript"></script>
+<script src="../plugins/jquery/jquery-3.5.0.min.js" type="application/javascript"></script>
+<script src="../js/restaurant.js" type="application/javascript"></script>
+</html>

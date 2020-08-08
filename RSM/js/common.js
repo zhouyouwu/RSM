@@ -9,7 +9,6 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
 
     $('.layui-nav-item a').click(function () {
         var src = $(this).attr('data-src');
-        alert(src);
         $('iframe').attr('src',src);
     });
 });

@@ -118,7 +118,7 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
     function customDataProcess() {
         var data={"orderList":[{"orderId":3,"orderDiscount":10.0,"orderTotal":96.0,"orderReceive":100.0,"restaurantId":1,"cartId":2,"orderDetails":"[{\"dishesName\":\"红烧狮子头\",\"dishesPrice\":27,\"dishesCount\":2},{\"dishesName\":\"东坡肉\",\"dishesPrice\":21,\"dishesCount\":2}]","orderDate":"2020-06-13"},{"orderId":4,"orderDiscount":10.0,"orderTotal":48.0,"orderReceive":50.0,"restaurantId":1,"cartId":3,"orderDetails":"[{\"dishesName\":\"东坡肉\",\"dishesPrice\":21,\"dishesCount\":1},{\"dishesName\":\"红烧狮子头\",\"dishesPrice\":27,\"dishesCount\":1}]","orderDate":"2020-06-13"}],"total":144.0}
         let dateList = getDateList();
-        let tempYData = [96,70,83];
+        let tempYData = [96,70,83,50,78,36,62];
         let customList = [{"orderId":3,"orderDiscount":10.0,"orderTotal":96.0,"orderReceive":100.0,"restaurantId":1,"cartId":2,"orderDetails":"[{\"dishesName\":\"红烧狮子头\",\"dishesPrice\":27,\"dishesCount\":2},{\"dishesName\":\"东坡肉\",\"dishesPrice\":21,\"dishesCount\":2}]","orderDate":"2020-06-13"},{"orderId":4,"orderDiscount":10.0,"orderTotal":48.0,"orderReceive":50.0,"restaurantId":1,"cartId":3,"orderDetails":"[{\"dishesName\":\"东坡肉\",\"dishesPrice\":21,\"dishesCount\":1},{\"dishesName\":\"红烧狮子头\",\"dishesPrice\":27,\"dishesCount\":1}]","orderDate":"2020-06-13"}];
         // for(let i=0; i<dateList.length; i++){
         //     $.ajax({
@@ -153,7 +153,7 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
     function dishDataProcess(date) {
         let dishList = [{"dishesId":1,"dishesName":"东坡肉","dishesImageurl":"https://baike.baidu.com/pic/%E4%B8%9C%E5%9D%A1%E8%82%89/120740/16593158/4bed2e738bd4b31c31e6eea18ad6277f9f2ff8d6?fr\u003dlemma\u0026ct\u003dcover","dishesPrice":21},{"dishesId":2,"dishesName":"红烧狮子头","dishesImageurl":"https://baike.baidu.com/pic/%E7%BA%A2%E7%83%A7%E7%8B%AE%E5%AD%90%E5%A4%B4/1652307/0/4d4970063e62e230030881e0","dishesPrice":27}];
         let dateList = getDateList(date);
-        let tempYData = [20,50,30];
+        let tempYData = [20,50,30,76,53,78,50];
         dishList.forEach(function (item) {
             // for(var i=0; i<dateList.length; i++){
             //     $.ajax({
@@ -225,7 +225,6 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
                 tr.append('<td>'+item.orderReceive+'</td>');
                 tr.append('<td>'+item.restaurantId+'</td>');
                 tr.append('<td>'+item.orderDate+'</td>');
-                tr.append('<td lay-data="'+item.orderDetails+'">查看详细信息</td>');
                 tr.append('</tr>');
                 tbody.append(tr.toString());
             });

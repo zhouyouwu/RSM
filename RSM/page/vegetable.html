@@ -2,38 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>用户管理</title>
+    <title>原材料管理</title>
     <link rel="stylesheet" href="../plugins/layui-v2.5.6/layui/css/layui.css"/>
 </head>
-<body style="background: #F2F2F2;padding: 20px">
+<body>
 <div class="layui-card">
     <div class="layui-card-header">
-        <button type="button" class="layui-btn" id="add">新增</button>
-        <button id="initTable" style="visibility: hidden">刷新表格</button>
+        <div class="layui-row">
+            <div class="layui-col-md4">
+                <button type="button" class="layui-btn" id="add">新增</button>
+                <button id="initTable" style="visibility: hidden">刷新表格</button>
+            </div>
+            <div class="layui-col-md4 layui-col-md-offset4">
+                <form class="layui-form layui-form-pane">
+                    <div class="layui-form-item" style="float: right">
+                        <label class="layui-form-label">数据账期：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="op-time" readonly autocomplete="off" placeholder="选择账期"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
     <div class="layui-card-body">
         <table class="layui-table" id="table-data" lay-filter="table-data"></table>
     </div>
 </div>
 </body>
-<script src="../plugins/layui-v2.5.6/layui/layui.js" type="text/javascript"></script>
-<script src="../plugins/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
+<script src="../plugins/layui-v2.5.6/layui/layui.js"></script>
+<script src="../plugins/jquery/jquery-3.5.0.min.js"></script>
 <script src="../plugins/art-template/art-template.min.js" type="text/javascript"></script>
 <script src="../js/utils.js" type="text/javascript"></script>
-<script src="../js/user.js" type="text/javascript"></script>
+<script src="../js/vegetable.js" type="text/javascript"></script>
 
 <script type="text/html" id="toolTemp">
     <a class="layui-btn layui-btn-xs" lay-event="mdf">修改</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-</script>
-
-<script type="text/html" id="judge">
-    {{# if(d.authority == "0"){ }}
-    员工
-    {{# } }}
-    {{# if(d.authority == "1"){ }}
-    管理员
-    {{# } }}
 </script>
 
 <script type="text/html" id="modify-btn">
@@ -49,3 +55,4 @@
     </div>
 </script>
 </html>
+

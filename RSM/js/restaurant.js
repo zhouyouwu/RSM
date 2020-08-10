@@ -12,18 +12,19 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
     function getRestaurant() {
         // $.ajax({
         //     type: "get",
-        //     url: "www.zhouyouwu.club:9191/Restaurant/getRestaurant",
+        //     url: "http://localhost:9191/Restaurant/getRestaurant",
         //     async: true,
         //     cache: false,
-        //     //data: {'date': dateList[i].replaceAll('/','-'), 'day': 1},
         //     dataType: "json",
         //     contentType: "application/x-www-form-urlencoded; charset=utf-8",
         //     success: function (v) {
-        //         $('#restNo').text(v.restaurantId);
-        //         $('#restName').text(v.restaurantName);
-        //         $('#restAddr').text(v.restaurantAddress);
-        //         $('#restPhone').text(v.restaurantPhone);
-        //         $('#restDiscount').text(v.discount);
+        //         v = JSON.parse(v)
+        //         console.log(v)
+        //         $('#restNo').val(v.restaurantId);
+        //         $('#restName').val(v.restaurantName);
+        //         $('#restAddr').val(v.restaurantAddress);
+        //         $('#restPhone').val(v.restaurantPhone);
+        //         $('#restDiscount').val(v.discount);
         //     },
         //     error: function (v) {
         //         console.error('接口异常', v);
@@ -41,7 +42,6 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
         $('#restAddr').val(v.restaurantAddress);
         $('#restPhone').val(v.restaurantPhone);
         $('#restDiscount').val(v.discount);
-
     }
 
     $('#mdf').click(function () {
@@ -52,7 +52,7 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
         let discount = $('#restDiscount').val();
         $.ajax({
             type: "get",
-            url: "www.zhouyouwu.club:9191/Restaurant/updateRestaurant",
+            url: "http://localhost:9191/Restaurant/updateRestaurant",
             async: true,
             cache: false,
             data: {'restaurantId':restaurantId,'restaurantName':restaurantName,

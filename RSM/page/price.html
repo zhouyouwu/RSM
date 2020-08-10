@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>用户管理</title>
+    <title>菜单</title>
     <link rel="stylesheet" href="../plugins/layui-v2.5.6/layui/css/layui.css"/>
 </head>
-<body style="background: #F2F2F2;padding: 20px">
+<body>
 <div class="layui-card">
     <div class="layui-card-header">
         <button type="button" class="layui-btn" id="add">新增</button>
@@ -16,24 +16,15 @@
     </div>
 </div>
 </body>
-<script src="../plugins/layui-v2.5.6/layui/layui.js" type="text/javascript"></script>
-<script src="../plugins/jquery/jquery-3.5.0.min.js" type="text/javascript"></script>
+<script src="../plugins/layui-v2.5.6/layui/layui.js"></script>
+<script src="../plugins/jquery/jquery-3.5.0.min.js"></script>
 <script src="../plugins/art-template/art-template.min.js" type="text/javascript"></script>
 <script src="../js/utils.js" type="text/javascript"></script>
-<script src="../js/user.js" type="text/javascript"></script>
+<script src="../js/price.js" type="text/javascript"></script>
 
 <script type="text/html" id="toolTemp">
     <a class="layui-btn layui-btn-xs" lay-event="mdf">修改</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-</script>
-
-<script type="text/html" id="judge">
-    {{# if(d.authority == "0"){ }}
-    员工
-    {{# } }}
-    {{# if(d.authority == "1"){ }}
-    管理员
-    {{# } }}
 </script>
 
 <script type="text/html" id="modify-btn">

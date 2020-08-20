@@ -5,7 +5,9 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
         , layer = layui.layer
         , laydate = layui.laydate
         , table = layui.table
-        , upload = layui.upload;
+        , upload = layui.upload
+        , object = undefined
+        , count = 0;
     initTable();
 
     function initTable() {
@@ -19,60 +21,72 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
                 'dishesId': 1,
                 'dishesName': '东坡肉',
                 'dishesPrice': 21
-            },{
-                'dishesId': 1,
+            }, {
+                'dishesId': 2,
                 'dishesName': '狮子头',
                 'dishesPrice': 25
-            },{
-                'dishesId': 1,
+            }, {
+                'dishesId': 3,
                 'dishesName': '糖醋排骨',
                 'dishesPrice': 19
-            },{
-                'dishesId': 1,
+            }, {
+                'dishesId': 4,
                 'dishesName': '西湖醋鱼',
                 'dishesPrice': 53
             }]
             , cols: [[
-                {field: 'dishesId', title: '菜品id', align: 'center'}
+                {type: 'checkbox', fixed: 'left'}
+                , {field: 'dishesId', title: '菜品id', align: 'center'}
                 , {field: 'dishesName', title: '菜品名', align: 'center'}
                 , {field: 'dishesPrice', title: '价格', align: 'center'}
-                , {field: 'count', title: '', hide: true}
+                , {field: 'num', title: '数量', hide: true}
                 , {fixed: 'right', title: '操作', templet: '#toolTemp', align: 'center'}
             ]]
+            , id: 'row'
         });
     }
 
     function delDish(obj) {
-        layer.confirm('确定要删除吗', function (index) {
-            // $.ajax({
-            //     type: "get",
-            //     url: "www.zhouyouwu.club:9191/Price/deleteDishes",
-            //     async: true,
-            //     cache: false,
-            //     data: {'userId': obj.userId},
-            //     dataType: "json",
-            //     contentType: "application/x-www-form-urlencoded; charset=utf-8",
-            //     success: function (v) {
-            //         obj.del();
-            //     },
-            //     error: function (v) {
-            //         console.error('接口异常', v);
-            //     }
-            // });
-            obj.layer.close(index);
-        });
+        var value = $(obj.tr).find('span').html();
+        if (Number(value) !== 0) {
+            switch ($(obj.tr).find('.laytable-cell-1-0-1').html()) {
+                case '1':count -= 21;break;
+                case '2':count -= 25;break;
+                case '3':count -= 19;break;
+                case '4':count -= 53;break;
+                default:break;
+            }
+            $(obj.tr).find('span').html(Number(value) - 1);
+        }
     }
 
     function addDish(obj) {
-        var value = obj.event;
-        var num = Number(span) + 1;
-        span.text(num);
+        var value = $(obj.tr).find('span').html();
+        switch ($(obj.tr).find('.laytable-cell-1-0-1').html()) {
+            case '1':count = count+21;break;
+            case '2':count = count+25;break;
+            case '3':count = count+19;break;
+            case '4':count = count+53;break;
+            default:break;
+        }
+        $(obj.tr).find('span').html(Number(value) + 1);
     }
 
+    function total(data) {
+        alert(count)
+        layer.alert(JSON.stringify(data)+'<br>总计'+count);
+    }
+
+    $('#total').click(function () {
+        var checkStatus = table.checkStatus('row');
+        total(checkStatus.data);
+    });
+
     table.on('tool(table-data)', function (obj) {
+        object = obj;
         switch (obj.event) {
             case 'add':
-                addDish();
+                addDish(obj);
                 break;
             case 'reduce':
                 delDish(obj)

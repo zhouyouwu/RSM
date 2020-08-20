@@ -5,7 +5,23 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
         , layer = layui.layer
         , laydate = layui.laydate
         , table = layui.table
-        , upload = layui.upload;
+        , upload = layui.upload
+        , data = [{
+        'userId': '1',
+        'password': '123456',
+        'authority': '0',
+        'entryDate': '2020-08-06',
+        'workDate': '30',
+        'salary': '2500'
+    },
+        {
+            'userId': '2',
+            'password': '123456789',
+            'authority': '1',
+            'entryDate': '2020-08-06',
+            'workDate': '30',
+            'salary': '2500'
+        }];
     initTable();
 
     function initTable() {
@@ -15,15 +31,7 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
             // , method: 'get'
             // , url: 'http://localhost/User/getUser'
             // , where: {}
-            , height: '100px'
-            , data: [{
-                'userId': '1',
-                'password': '123456',
-                'authority': '0',
-                'entryDate': '2020-08-06',
-                'workDate': '30',
-                'salary': '2500'
-            }]
+            , data: data
             , cols: [[
                 {field: 'userId', title: '用户编号', align: 'center'}
                 , {field: 'password', title: '密码', align: 'center'}
@@ -36,18 +44,34 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
         });
     }
 
-    function modify() {
+    function modify(row) {
+        console.log(data[row])
         layer.open({
             type: 2,
             area: ['450px', '90%'],
             anim: 1,
             title: '修改用户信息',
             content: "./tips/user_form.html",
-            success: function(layero, index){
-                var body = layer.getChildFrame('body',index);//建立父子联系
+            success: function (layero, index) {
+                var body = layer.getChildFrame('body', index);//建立父子联系
                 var iframeWin = window[layero.find('iframe')[0]['name']];
-                var btn = body.find('#div-btn');
-                btn.html(template('modify-btn'));
+                body.find('input[id="userId"]').val(data[row].userId);
+                body.find('input[id="password"]').val(data[row].password);
+                body.find('input[id="entryDate"]').val(data[row].entryDate);
+                body.find('input[id="workDate"]').val(data[row].workDate);
+                body.find('input[id="salary"]').val(data[row].salary);
+            },
+            btn: ['修改', '取消'],
+            btn1: function (index, layero) {
+                var obj = layero.find("iframe")[0].contentWindow;
+                data[row].userId = obj.$('#userId').val();
+                data[row].password = obj.$('#password').val();
+                data[row].authority = obj.$('#authority').val();
+                data[row].entryDate = obj.$('#entryDate').val();
+                data[row].workDate = obj.$('#workDate').val();
+                data[row].salary = obj.$('#salary').val();
+                initTable();
+                layer.close(index);
             }
         });
     }
@@ -74,18 +98,31 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
         });
     }
 
-    function addUser() {
+    function addUser(row) {
         layer.open({
             type: 2,
             area: ['450px', '90%'],
             anim: 1,
             title: '新增用户',
             content: "./tips/user_form.html",
-            success: function(layero, index){
-                var body = layer.getChildFrame('body',index);//建立父子联系
+            success: function (layero, index) {
+                var body = layer.getChildFrame('body', index);//建立父子联系
                 var iframeWin = window[layero.find('iframe')[0]['name']];
-                var btn = body.find('#div-btn');
-                btn.html(template('add-btn'));
+            },
+            btn: ['新增', '取消'],
+            btn1: function (index, layero) {
+                var obj = layero.find("iframe")[0].contentWindow;
+                let value = {
+                    userId: obj.$('#userId').val(),
+                    password: obj.$('#password').val(),
+                    authority: obj.$('#authority').val(),
+                    entryDate: obj.$('#entryDate').val(),
+                    workDate: obj.$('#workDate').val(),
+                    salary: obj.$('#salary').val()
+                }
+                data.push(value);
+                initTable();
+                layer.close(index);
             }
         });
     }
@@ -93,7 +130,8 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
     table.on('tool(table-data)', function (obj) {
         switch (obj.event) {
             case 'mdf':
-                modify();
+                var row = $(obj.tr).attr("data-index");
+                modify(row);
                 break;
             case 'del':
                 delUser(obj)
@@ -104,7 +142,7 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
     });
 
     $('#add').click(function () {
-        addUser();
+        addUser(data.length);
     });
 
     $('#initTable').click(function () {

@@ -153,7 +153,7 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
     function dishDataProcess(date) {
         let dishList = [{"dishesId":1,"dishesName":"东坡肉","dishesImageurl":"https://baike.baidu.com/pic/%E4%B8%9C%E5%9D%A1%E8%82%89/120740/16593158/4bed2e738bd4b31c31e6eea18ad6277f9f2ff8d6?fr\u003dlemma\u0026ct\u003dcover","dishesPrice":21},{"dishesId":2,"dishesName":"红烧狮子头","dishesImageurl":"https://baike.baidu.com/pic/%E7%BA%A2%E7%83%A7%E7%8B%AE%E5%AD%90%E5%A4%B4/1652307/0/4d4970063e62e230030881e0","dishesPrice":27}];
         let dateList = getDateList(date);
-        let tempYData = [20,50,30,76,53,78,50];
+        let tempYData = [21,42,21,84,42,42,84];
         dishList.forEach(function (item) {
             // for(var i=0; i<dateList.length; i++){
             //     $.ajax({

@@ -33,7 +33,7 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
         var v = {
             "restaurantId": 1,
             "restaurantName": "中餐厅",
-            "restaurantAddress": "四川省会东县",
+            "restaurantAddress": "四川省",
             "restaurantPhone": 13356478914,
             "discount": 10.0
         };
@@ -67,5 +67,6 @@ layui.use(['jquery', 'element', 'form', 'layer', 'laydate', 'table', 'upload'], 
                 console.error('接口异常', v);
             }
         });
+        alert('修改成功')
     });
 });

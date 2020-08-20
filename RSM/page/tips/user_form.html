@@ -10,42 +10,42 @@
     <div class="layui-form-item">
         <span class="layui-form-label">用户id</span>
         <div class="layui-input-inline">
-            <input class="layui-input" type="text" name="userId">
+            <input class="layui-input" type="text" id="userId">
         </div>
     </div>
     <div class="layui-form-item">
         <span class="layui-form-label">密码</span>
         <div class="layui-input-inline">
-            <input class="layui-input" type="text" name="password">
+            <input class="layui-input" type="text" id="password">
         </div>
     </div>
     <div class="layui-form-item">
         <span class="layui-form-label">权限</span>
         <div class="layui-input-block">
-            <input type="radio" value="0" title="员工" name="authority">
-            <input type="radio" value="1" title="管理员" name="authority" id="bossRadio">
+            <select class="layui-select" id="authority">
+                <option selected value="0">员工</option>
+                <option value="1">管理员</option>
+            </select>
         </div>
 
     </div>
     <div class="layui-form-item">
         <span class="layui-form-label">入职时间</span>
         <div class="layui-input-inline">
-            <input class="layui-input" type="text" name="entryDate">
+            <input class="layui-input" type="text" id="entryDate">
         </div>
     </div>
     <div class="layui-form-item">
         <span class="layui-form-label">工作天数</span>
         <div class="layui-input-inline">
-            <input class="layui-input" type="text" name="workDate">
+            <input class="layui-input" type="text" id="workDate">
         </div>
     </div>
     <div class="layui-form-item">
         <span class="layui-form-label">薪水</span>
         <div class="layui-input-inline">
-            <input class="layui-input" type="text" name="salary">
+            <input class="layui-input" type="text" id="salary">
         </div>
-    </div>
-    <div class="layui-form-item" id="div-btn">
     </div>
 </form>
 </body>

@@ -14,15 +14,15 @@
             <span>管理员登录</span>
         </div>
         <div class="log-form">
-            <form class="layui-form">
+            <form class="layui-form" id="boss-form">
                 <div class="layui-form-item">
-                    <input type="text" class="layui-input" placeholder="请输入用户名"><br/>
+                    <input type="text" class="layui-input" placeholder="请输入用户id" name="userId" id="bossId"><br/>
                 </div>
                 <div class="layui-form-item">
-                    <input type="password" class="layui-input" placeholder="请输入密码"><br/>
+                    <input type="password" class="layui-input" placeholder="请输入密码" name="password" id="bossPw"><br/>
                 </div>
 
-                <button class="layui-btn layui-btn-normal layui-btn-fluid" id="boss-btn">登录</button>
+                <button type="button" class="layui-btn layui-btn-normal layui-btn-fluid" id="boss-btn">登录</button>
             </form>
         </div>
     </div>
@@ -31,15 +31,15 @@
             <span>员工登录</span>
         </div>
         <div class="log-form">
-            <form class="layui-form">
+            <form class="layui-form" id="employee-form">
                 <div class="layui-form-item">
-                    <input type="text" class="layui-input" placeholder="请输入用户名"><br/>
+                    <input type="text" class="layui-input" placeholder="请输入用户名" name="userId" id="employeeId"><br/>
                 </div>
                 <div class="layui-form-item">
-                    <input type="password" class="layui-input" placeholder="请输入密码"><br/>
+                    <input type="password" class="layui-input" placeholder="请输入密码" name="password" id=employeePw><br/>
                 </div>
 
-                <button class="layui-btn layui-btn-normal layui-btn-fluid" id="employee-btn">登录</button>
+                <button type="button" class="layui-btn layui-btn-normal layui-btn-fluid" id="employee-btn">登录</button>
             </form>
         </div>
     </div>
